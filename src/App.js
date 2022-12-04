@@ -141,6 +141,27 @@ const Home = () => {
         type="primary"
         shape="round"
         size="large"
+        onClick={() => history.push("/demo")}
+        style={{
+          display: "block",
+          backgroundColor: "#DA0037",
+          borderWidth: 0,
+          fontWeight: "bolder",
+          fontSize: 25,
+          height: "90px",
+          width: "320px",
+          borderRadius: "50px",
+          margin: "15px auto 20px auto",
+          marginBottom: "20px",
+          alignSelf: "center",
+        }}
+      >
+        PRATIQUER
+      </Button>
+      <Button
+        type="primary"
+        shape="round"
+        size="large"
         onClick={() => history.push("/ar")}
         style={{
           display: "block",
@@ -156,18 +177,46 @@ const Home = () => {
           alignSelf: "center",
         }}
       >
-        Debutez 404 School Ar
+        COMMENCER
       </Button>
     </div>
   );
 };
 
+const Demo = () => {
+  const history = useHistory()
+
+  return (
+    <>
+      <button
+      onClick={() => history.goBack()}
+        style={{
+          paddingLeft: 5,
+          paddingRight: 5,
+          position: 'absolute',
+          top: '90vh',
+          left: '80vw'
+        }}
+      >Retour</button>
+      <iframe 
+        src="https://juniorseb.github.io"
+        style={{
+          width: '105vw',
+          height: '100vh'
+        }}
+      />
+    </>
+  )
+}
 const App = () => {
   return (
     <Router>
       <Switch>
         <Route path="/ar">
           <AR />
+        </Route>
+        <Route path="/demo">
+          <Demo />
         </Route>
         <Route path="/">
           <Home />
